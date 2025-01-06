@@ -90,3 +90,27 @@ web
 ❯ docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
+
+# 1.3
+```console
+❯ cd chapter-01/hello-server
+
+❯ docker build . --tag hello-server:1.0
+<omit>
+
+❯ docker images hello-server
+REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+hello-server   1.0       0dba0c365edf   2 minutes ago   6.72MB
+
+❯ docker run --rm --detach --publish 8080:8080 --name hello-server hello-server:1.0
+de3fcfdcb04d10ae4e0ed7aa9ed3ccba1c3a0e3bd94ebe2f5582f9adbbce6e8e
+
+❯ curl localhost:8080
+Hello, world!%
+
+❯ docker stop hello-server
+hello-server
+
+❯ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
